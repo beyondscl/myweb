@@ -1,8 +1,6 @@
-### 我为什么要重新学spring
-```
-进阶三部曲
-spring
-    需要明白各种重要模块的核心思想与基本实现方式
-spring boot
-spring cloud
-```
+### 搭建java web基础框架
+
+#### date:2018年1月18日14:34:46
+1. 搭建spring mvc ok
+2. 集成mybatis ok
+3. 使用token替代session ok
