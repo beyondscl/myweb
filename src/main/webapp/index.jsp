@@ -6,7 +6,7 @@
 <h2>you should run install</h2>
 <a href="/user/jumpToMain"> go main </a>
 <br>
-<a href="/login.jsp"> login</a>
+<a href="/user/toLogin"> login</a>
 <br>
 
 js code 1 -> post https:///....getfile

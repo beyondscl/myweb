@@ -3,13 +3,13 @@ package com.bird.control;
 import com.bird.domain.User;
 import com.bird.service.UserService;
 import org.junit.Assert;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -56,17 +56,20 @@ public class UserCtl {
 
         return "main";
     }
-    //post提交获取不到数据
-    @RequestMapping(value = "login", method = RequestMethod.GET)
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(
             @RequestParam("name") String name,
             @RequestParam("password") String password,
             @ModelAttribute User user,
             HttpServletRequest request) {
 
-        System.out.println(1);
-
         return "main";
+    }
+
+    @RequestMapping(value = "toLogin")
+    public String toLogin() {
+        return "login";
     }
 
 }

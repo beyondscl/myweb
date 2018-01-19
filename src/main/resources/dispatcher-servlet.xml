@@ -22,6 +22,11 @@
     -->
     <context:component-scan base-package="com.bird"/>
 
+    <!--要么这里配置，要么自定义filter不经过spring-->
+    <!--好像没有什么效果-->
+    <!--<mvc:resources location="/WEB-INF/assets/js/" mapping="/js/**"/>-->
+    <!--<mvc:resources location="/WEB-INF/assets/css/" mapping="/css/**"/>-->
+
     <!-- 视图层配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

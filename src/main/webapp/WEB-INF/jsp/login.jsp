@@ -11,7 +11,7 @@
     <title>登录</title>
 </head>
 <body>
-<form action="/user/login" method="get" enctype="multipart/form-data">
+<form action="/user/login" method="post" enctype="application/x-www-form-urlencoded">
     <input id="name" name="name" value="" type="text">
     <input id="password" name="password" value="" type="password">
     <input type="submit" value="提交"/>
