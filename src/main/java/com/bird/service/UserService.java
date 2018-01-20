@@ -14,12 +14,15 @@ import java.util.List;
 @Service
 public interface UserService {
 
-    public User getUser(User user);
+    User getUser(User user);
 
-    public List<User> getAllUser();
+    List<User> getAllUser();
 
-    public void test();
+    void test();
 
-    public void addUser(User user);
+    void addUser(User user);
+
+
+    User getUserByAccount(User user);
 
 }

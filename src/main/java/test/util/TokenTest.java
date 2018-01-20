@@ -18,9 +18,9 @@ public class TokenTest {
 
     @Test
     public void getHeader() throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
-        String token = Token.getToken();
-        System.out.println(token);
-        Token.authToken(token);
+//        String token = Token.getToken();
+//        System.out.println(token);
+//        Token.authToken(token);
     }
 
 }

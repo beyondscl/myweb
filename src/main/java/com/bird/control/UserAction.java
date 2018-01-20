@@ -2,12 +2,12 @@ package com.bird.control;
 
 import com.bird.domain.User;
 import com.bird.service.UserService;
+import com.bird.util.Token;
 import org.junit.Assert;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,12 +24,28 @@ import java.util.logging.Logger;
  */
 @Controller
 @RequestMapping("/user/*")
-public class UserCtl {
-    private Logger logger = Logger.getLogger(UserCtl.class.getName());
+public class UserAction {
+    private Logger logger = Logger.getLogger(UserAction.class.getName());
 
 
     @Resource
     private UserService userService;
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(@ModelAttribute User user,
+                        HttpServletRequest request) {
+//        user = userService.getUserByAccount(user);
+        if (null == user)
+            return "login";
+        request.setAttribute("token", Token.getToken(user));
+        return "main";
+
+    }
+
+    @RequestMapping(value = "toLogin")
+    public String toLogin() {
+        return "login";
+    }
 
     @RequestMapping("jumpToMain")
     public String jump(HttpServletRequest request,
@@ -55,21 +71,6 @@ public class UserCtl {
         System.out.println("-------------------------");
 
         return "main";
-    }
-
-    @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(
-            @RequestParam("name") String name,
-            @RequestParam("password") String password,
-            @ModelAttribute User user,
-            HttpServletRequest request) {
-
-        return "main";
-    }
-
-    @RequestMapping(value = "toLogin")
-    public String toLogin() {
-        return "login";
     }
 
 }

@@ -14,7 +14,10 @@
 %>
 <html>
 <head>
+    <title>奇鸟安全</title>
     <base href="${basePath}">
-    <script src="/assets/js/jquery-3.2.1.min.js"/>
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <script type="text/javascript"
+            src="/assets/js/jquery-3.2.1.min.js"></script>
 </head>
 </html>

@@ -1,9 +1,8 @@
 package com.bird.util;
 
+import com.bird.domain.User;
 import org.joda.time.DateTime;
-import org.joda.time.JodaTimePermission;
 import org.json.simple.JSONObject;
-import org.springframework.util.Assert;
 import org.springframework.util.Base64Utils;
 
 import javax.crypto.Mac;
@@ -27,7 +26,7 @@ public class Token {
     private static String sign = "HmacSHA256";//加密方式
     private static String encodeType = "UTF-8";//编码方式
 
-    public static String getHeader() {
+    private static String getHeader() {
         JSONObject h = new JSONObject();
         h.put("typ", "JWT");
         h.put("alg", "HS256");
@@ -39,23 +38,22 @@ public class Token {
      *
      * @return
      */
-    public static String getPlayload() {
+    private static String getPlayload(User user) {
         JSONObject h = new JSONObject();
         h.put("iss", "");
         h.put("aud", "");
         h.put("nbf", "");
         h.put("iat", DateTime.now());//签发时间
         h.put("jti", "");
-        h.put("uid", "uid96528514");
-        h.put("uname", "testaccount");
-        h.put("uip", "127.0.0.1");
+        h.put("uid", user.getId());
+        h.put("uname", user.getName());
 //        h.put("uip", "127.0.0.1");//是否考虑换浏览器
         h.put("exp", "600");//有效时间秒
 
         return new String(Base64Utils.encode(h.toJSONString().getBytes()));
     }
 
-    public static String getSignature(String header, String playLoad) {
+    private static String getSignature(String header, String playLoad) {
         try {
             String h = URLEncoder.encode(header, encodeType);
             String p = URLEncoder.encode(playLoad, encodeType);
@@ -73,7 +71,7 @@ public class Token {
         return "";
     }
 
-    public static String byte2hex(byte[] b) {
+    private static String byte2hex(byte[] b) {
         StringBuilder hs = new StringBuilder();
         String stmp;
         for (int n = 0; b != null && n < b.length; n++) {
@@ -85,9 +83,9 @@ public class Token {
         return hs.toString().toUpperCase();
     }
 
-    public static String getToken() {
+    public static String getToken(User user) {
         String h = getHeader();
-        String p = getPlayload();
+        String p = getPlayload(user);
         String sign = getSignature(h, p);
         return h + "." + p + "." + sign;
     }

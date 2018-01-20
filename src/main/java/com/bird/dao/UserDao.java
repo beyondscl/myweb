@@ -13,9 +13,12 @@ import java.util.List;
  */
 @Repository
 public interface UserDao {
-    public User getUser(User user);
+     User getUser(User user);
 
-    public List<User> getAllUser();
+     List<User> getAllUser();
 
-    public void addUser(User user);
+     void addUser(User user);
+
+    User getUserByAccount(User user);
+
 }
