@@ -44,19 +44,23 @@ public class RequestFilter implements Filter {
                 || uri.equals("/")
                 || uri.endsWith("/login")
                 || uri.endsWith("/toLogin"))) {
+            //域名过滤，非本网站域名直接pass
             //所有后缀直接放过，放过登录
             filterChain.doFilter(servletRequest, servletResponse);
         } else if (uri.endsWith("/ssoLogin")) {
             //其他登录方式
         } else {
-            String token = (String) request.getAttribute("token");
-            if (null == token || !Token.authToken(token)) {
-                //针对表单请求非法不含
-                log.debug(uri + "+" + ip);
-                throw new RuntimeException("丢失的页面");
-            } else {
-                filterChain.doFilter(servletRequest, servletResponse);
-            }
+//            String token = (String) request.getAttribute("token");
+//            if (null == token || !Token.authToken(token)) {
+//                //针对表单请求非法不含
+//                log.debug(uri + "+" + ip);
+//                throw new RuntimeException("丢失的页面");
+//            } else {
+//                filterChain.doFilter(servletRequest, servletResponse);
+//            }
+
+            filterChain.doFilter(servletRequest, servletResponse);
+
         }
     }
 

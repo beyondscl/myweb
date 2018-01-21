@@ -36,3 +36,5 @@
 [INFO] [2018-01-16 16:35:26][org.springframework.context.support.ClassPathXmlApplicationContext]Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3444d69d: startup date [Tue Jan 16 16:35:26 CST 2018]; root of context hierarchy
 [INFO] [2018-01-16 16:35:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [applicationContext.xml]
 [INFO] [2018-01-16 16:35:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+[INFO] [2018-01-21 13:59:36][org.apache.http.impl.client.DefaultHttpClient]I/O exception (java.net.SocketException) caught when connecting to {s}->https://portal.sun.com:443: Connection reset
+[INFO] [2018-01-21 13:59:36][org.apache.http.impl.client.DefaultHttpClient]Retrying connect to {s}->https://portal.sun.com:443

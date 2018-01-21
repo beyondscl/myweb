@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +45,19 @@ public class UserAction {
 
     @RequestMapping(value = "toLogin")
     public String toLogin() {
+        return "login";
+    }
+
+
+    /**
+     * 提供外部接口直接返回数据，类似servlet write
+     * @param name
+     * @param password
+     * @return
+     */
+    @RequestMapping(value = "apiTest")
+    @ResponseBody
+    public String apiTest(String name, String password) {
         return "login";
     }
 

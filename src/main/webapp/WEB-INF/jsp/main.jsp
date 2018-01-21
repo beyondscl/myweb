@@ -12,9 +12,6 @@
 <html>
 <head>
     <script type="text/javascript">
-        $(function () {
-            alert(1)
-        })
     </script>
 </head>
 <body>

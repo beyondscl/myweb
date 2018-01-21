@@ -10,6 +10,7 @@ import java.util.List;
  * time:2017/11/19 0019
  * email:pettygadfly@gmail.com
  * doc:
+ * 传统本地实现接口
  */
 @Service
 public interface UserService {

@@ -11,7 +11,7 @@ import java.sql.Statement;
  * email:pettygadfly@gmail.com
  * doc:
  */
-public class jdbctest {
+public class jdbcTest {
 
     public static void main(String[] args) throws Exception {
         Connection conn = null;
