@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bird.dao.WebDao">
+
+    <insert id="registerUser" parameterType="com.bird.domain.Qzhapp"
+            flushCache="true" statementType="PREPARED">
+        INSERT INTO qzhapp (id, name, password,uuid,gold) VALUES (#{id}, #{name}, #{password},#{uuid},'0')
+    </insert>
+    <select id="loginUser" parameterType="com.bird.domain.Qzhapp"
+            flushCache="true" statementType="PREPARED"
+            resultType="com.bird.domain.Qzhapp" useCache="false">
+        select * from qzhapp where uuid = #{uuid}
+</select>
+
+    <select id="findUser" parameterType="com.bird.domain.Qzhapp"
+            flushCache="true" statementType="PREPARED"
+            resultType="com.bird.domain.Qzhapp" useCache="false">
+        select * from qzhapp where uuid = #{uuid} and name = #{name} and password = #{password}
+    </select>
+
+    <update id="addGold" parameterType="com.bird.domain.Qzhapp"
+            statementType="PREPARED">
+        UPDATE  qzhapp SET gold = gold  + #{gold} where uuid = #{uuid}
+    </update>
+
+    <update id="setGold" parameterType="com.bird.domain.Qzhapp"
+            statementType="PREPARED">
+      UPDATE  qzhapp SET gold = #{gold} where uuid = #{uuid}
+    </update>
+
+    <update id="updateUser" parameterType="com.bird.domain.Qzhapp"
+            statementType="PREPARED">
+        UPDATE  qzhapp SET name = #{name} , password = #{password} where uuid = #{uuid}
+    </update>
+
+
+</mapper>

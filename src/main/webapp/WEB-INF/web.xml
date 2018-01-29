@@ -25,14 +25,14 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <filter>
-        <filter-name>request</filter-name>
-        <filter-class>com.bird.filters.RequestFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>request</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    <!--<filter>-->
+    <!--<filter-name>request</filter-name>-->
+    <!--<filter-class>com.bird.filters.RequestFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+    <!--<filter-name>request</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
 
 
     <!-- 项目中使用Spring 时，applicationContext.xml配置文件中并没有BeanFactory，要想在业务层中的class 文件中直接引用Spring容器管理的bean可通过以下方式-->
